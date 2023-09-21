@@ -1,0 +1,106 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.wrapper {
+	background: url('img/linkin1.jpg') 0 0/ 100% 100% no-repeat;
+	width: 100%;
+	height: 100vh;
+}
+
+.container {
+	width: inherit;
+	height: inherit;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	align-items: center;
+}
+
+.player {
+	margin: 0 auto;
+	max-width: 250px;
+	height: 390px;
+	background-color: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 5px 5px 5px rgb(33, 32, 32);
+}
+
+.logo {
+	width: 100%;
+	height: 200px;
+}
+
+.logo img {
+	width: inherit;
+	height: inherit;
+}
+
+h1 {
+	font-size: 22px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 10px 20px 5px 20px;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: italic;
+	text-transform: capitalize;
+	padding: 0px 0 20px 20px;
+}
+
+.progress {
+	width: 95%;
+	margin: 0 auto;
+	padding: 3px 0;
+	background-color: #e5e2e2;
+	border-radius: 5px;
+}
+
+.line_progress {
+	width: 50%;
+	height: 5px;
+	background-color: #0a0a0a;
+	border-radius: 3px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 170px;
+	margin: 10px auto;
+}
+
+.buttons img {
+	width: 38px;
+	height: 38px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.buttons img:hover {
+	width: 38px;
+	height: 38px;
+	border: 1px solid rgb(5, 5, 5);
+}
+
+.button_play img {
+	width: 75px;
+	height: 75px;
+}
+
+.button_play img:hover {
+	width: 75px;
+	height: 75px;
+	border: 1px solid rgb(5, 5, 5);
+}
+
+
+.button_next img {
+	transform: rotate(180deg);
+}
