@@ -15,15 +15,17 @@ const nameSong = document.querySelector('.title_song');
 const imageWrapper = document.querySelector('.wrapper__img'); 
 const imageSong = document.querySelector('.logo_song'); 
 // Прогресс
+const progressContainer = document.querySelector('.progress');
 const progressLine = document.querySelector('.line_progress');
-const timeDuration = document.querySelector('.time_duration');
-const timeCurrent = document.querySelector('.time');
+let timeDuration = document.querySelector('.time_duration');
+let timeCurrent = document.querySelector('.time');
 
 
 
 // Массив песен и исполнителей
 const songs = ['in the end', 'inside', 'lost'];
 const bands = ['#linkin park#', 'linkin park', '*linkin park*'];
+const timeSong = ['03:39', '02:54', '03:12']
 
 // песня по умолчанию
 let songIndex = 0;
@@ -103,10 +105,54 @@ function progress(event) {
 	const progressTime = (currentTime / duration) * 100;
 	progressLine.style.width = `${progressTime}%`
 
-	timeDuration.textContent = `${duration}`;
-	timeCurrent.textContent = `${Math.round(currentTime)}`;
+	timeDuration.textContent = `${timeSong[songIndex]}`;
+
+	timeCurrent.textContent = `00:0${Math.round(currentTime)}`;
+
+	if (Number(Math.round(currentTime)) > 9) {
+		timeCurrent.textContent = `00:${Math.round(currentTime)}`;
+	}
+
+	if (Number(Math.round(currentTime)) > 59) {
+		timeCurrent.textContent = `01:0${Math.round(currentTime) - 60}`;
+	}
+
+	if (Number(Math.round(currentTime)) > 69) {
+		timeCurrent.textContent = `01:${Math.round(currentTime) - 60}`;
+	}
+
+	if (Number(Math.round(currentTime)) > 119) {
+		timeCurrent.textContent = `02:0${Math.round(currentTime) - 120}`;
+	}
+
+	if (Number(Math.round(currentTime)) > 129) {
+		timeCurrent.textContent = `02:${Math.round(currentTime) - 120}`;
+	}
+
+	if (Number(Math.round(currentTime)) > 179) {
+		timeCurrent.textContent = `03:0${Math.round(currentTime) - 180}`;
+	}
+
+	if (Number(Math.round(currentTime)) > 189) {
+		timeCurrent.textContent = `03:${Math.round(currentTime) - 180}`;
+	}
 }
 
+audio.addEventListener('timeupdate', progress);
 
+// Перемотка прогресса
+function setProgress (event) {
+	// достаем ширину контейнера
+	const widthProgress = this.clientWidth;
+	// вычисляем координаты где мы кликнули
+	const clickX = event.offsetX;
+	// достаем опять длину трека
+	const duration = audio.duration;
+	audio.currentTime = (clickX / widthProgress) * duration;
 
-audio.addEventListener('timeupdate', progress)
+}
+
+progressContainer.addEventListener("click", setProgress);
+
+// Автоматическое проигрывание треков
+audio.addEventListener('ended', next);
