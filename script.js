@@ -25,7 +25,7 @@ let timeCurrent = document.querySelector('.time');
 // Массив песен и исполнителей
 const songs = ['in the end', 'inside', 'lost'];
 const bands = ['#linkin park#', 'linkin park', '*linkin park*'];
-const timeSong = ['03:39', '02:54', '03:12']
+const timeSong = ['3:39', '2:54', '3:12']
 
 // песня по умолчанию
 let songIndex = 0;
@@ -107,34 +107,34 @@ function progress(event) {
 
 	timeDuration.textContent = `${timeSong[songIndex]}`;
 
-	timeCurrent.textContent = `00:0${Math.round(currentTime)}`;
+	timeCurrent.textContent = `0:0${Math.round(currentTime)}`;
 
 	if (Number(Math.round(currentTime)) > 9) {
-		timeCurrent.textContent = `00:${Math.round(currentTime)}`;
+		timeCurrent.textContent = `0:${Math.round(currentTime)}`;
 	}
 
 	if (Number(Math.round(currentTime)) > 59) {
-		timeCurrent.textContent = `01:0${Math.round(currentTime) - 60}`;
+		timeCurrent.textContent = `1:0${Math.round(currentTime) - 60}`;
 	}
 
 	if (Number(Math.round(currentTime)) > 69) {
-		timeCurrent.textContent = `01:${Math.round(currentTime) - 60}`;
+		timeCurrent.textContent = `1:${Math.round(currentTime) - 60}`;
 	}
 
 	if (Number(Math.round(currentTime)) > 119) {
-		timeCurrent.textContent = `02:0${Math.round(currentTime) - 120}`;
+		timeCurrent.textContent = `2:0${Math.round(currentTime) - 120}`;
 	}
 
 	if (Number(Math.round(currentTime)) > 129) {
-		timeCurrent.textContent = `02:${Math.round(currentTime) - 120}`;
+		timeCurrent.textContent = `2:${Math.round(currentTime) - 120}`;
 	}
 
 	if (Number(Math.round(currentTime)) > 179) {
-		timeCurrent.textContent = `03:0${Math.round(currentTime) - 180}`;
+		timeCurrent.textContent = `3:0${Math.round(currentTime) - 180}`;
 	}
 
 	if (Number(Math.round(currentTime)) > 189) {
-		timeCurrent.textContent = `03:${Math.round(currentTime) - 180}`;
+		timeCurrent.textContent = `3:${Math.round(currentTime) - 180}`;
 	}
 }
 
